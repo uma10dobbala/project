@@ -22,14 +22,15 @@ public class Test {
 			SalesReportEntity salesReportEntity2=new SalesReportEntity(5,"rc3","realme",50,11.6);
 			ISalesReportService salesReportService=new SalesReportServiceImpl();
 			List<SalesReportEntity> list2=new ArrayList<>();
-			EntityTransaction transaction=entityManager.getTransaction();
+			/*EntityTransaction transaction=entityManager.getTransaction();
 			transaction.begin();
 			entityManager.persist(salesReportEntity1);
 			entityManager.persist(salesReportEntity2);
-			transaction.commit();
+			transaction.commit();*/
 			salesReportService.findAllSalesReport();
 			System.out.println("Added Sucessfully");
-			salesReportService.updateProductReport(salesReportEntity1);
+			salesReportService.updateProductReport(salesReportEntity2);
+			System.out.println("Updated sucessfully");
 	}
 	
 }

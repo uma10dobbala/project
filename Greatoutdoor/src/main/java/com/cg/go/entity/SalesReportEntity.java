@@ -3,9 +3,12 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 @Entity
-@NamedQuery(query="delete from SalesReportEntity s where s.salesReportId=:salesReportId",name="deleting salesreport")
+@NamedQueries({
+@NamedQuery(query="select c from SalesReportEntity c where c.productId=:productId and c.quantitySold=:quantitySold and c.totalSale=:totalSale",name="update salesReport"),
+@NamedQuery(query="delete from SalesReportEntity s where s.salesReportId=:salesReportId",name="deleting salesreport")})
 public class SalesReportEntity {
 	@Id
 	private long salesReportId;

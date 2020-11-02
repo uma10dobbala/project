@@ -39,7 +39,12 @@ public class SalesReportServiceImpl implements ISalesReportService{
          String str=salesReportEntity.getProductId();
          Integer integer=salesReportEntity.getQuantitySold();
          Double d= salesReportEntity.getTotalSale();
-        daoSalesReport.updateProductReport(str,integer,d);
+        try {
+			daoSalesReport.updateProductReport(str,integer,d);
+		} catch (SalesReportException e) {
+			// TODO Auto-generated catch block
+			e.getMessage();
+		}
         transaction.commit();
 		//return salesReportObject;
 		
